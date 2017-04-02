@@ -26,8 +26,7 @@ public class NumberToWords {
             }  
 	}
         
-        
-        
+           
         private static String convertToString(int number)
         { // Function uses two arrays that have their elements lined up with their value in the array. Eg. singles[7] = "seven". This simplifies logic but requires empty elements at the start. 
             String[] singles = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "tweleve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
