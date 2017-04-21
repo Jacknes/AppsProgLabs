@@ -1,37 +1,24 @@
-/**
- * The store has and sells one product: Sticky tape.
- *
- * You can sell and restock a product, view stock and view cash.
- */
 import java.util.*;
 
 public class Store {
-    public static void main(String[] args) 
+
+    public static void main(String[] args)  //main function called
     {
-       new Store().use();
+       new Store().use(); //creates a new store and calls the use() method.
     }
     private Product product;
     private CashRegister cashRegister;
-    public Store()
+
+    public Store() //constructor that creates the product and cashRegister.
     {
         product = new Product("Sticky tape", 200, 2.99);
         cashRegister = new CashRegister();
     }
-//    public Store()
-//    {
-//        
-//    }
 
-    
-//    public Store()
-//    {
-//        
-//    }
-
-    public void use() 
+    public void use()
     {
         char choice;
-        while ((choice = readOption()) != 'x') 
+        while ((choice = readOption()) != 'x') //simple read 'pattern'
         {
             switch (choice) {
             case 's': sell(); break;
@@ -43,25 +30,25 @@ public class Store {
         }
     }
 
-    private void sell() 
+    private void sell()
     {
-        int numberOfItems = readNumber();
-        double salePrice = product.sell(numberOfItems);
-        if (salePrice != 0.0) 
+        int numberOfItems = readNumber(); //reads the number of objects to sell from the user.
+        double salePrice = product.sell(numberOfItems); //calls product.sell(), stores the profit to check that items were actually sold.
+        if (salePrice != 0.0) //if the products were accepted and sold, add the cash to the cash register.
         {
             cashRegister.add(salePrice);
-        } else {
+        } else { //if products are not sold. Inform the user.
             System.out.println("Not enough stock");
         }
     }
-    
+
     private char readOption (){
         System.out.print("Choice (s/r/v/c/x): ");
         return In.nextChar();
     }
 
     private void restock() {
-        product.restock(readNumber());
+        product.restock(readNumber()); //calls product restock passing in the number read from user with readNumber()
     }
     private int readNumber () {
         System.out.print("Number: ");
@@ -69,11 +56,11 @@ public class Store {
     }
 
     private void viewStock() {
-        System.out.println(product);
+        System.out.println(product); //calls the product.toString()
     }
 
     private void viewCash() {
-        System.out.println(cashRegister);
+        System.out.println(cashRegister); //calls the cashRegister.toString()
     }
 
     private void help() {
