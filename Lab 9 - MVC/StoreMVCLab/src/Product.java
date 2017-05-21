@@ -23,6 +23,8 @@ public class Product {
         this.stock = stock;
         this.price = price;
     }
+    public final String getName() {return name;}
+    public final String getPrice() {return "$"+price;}
 
     public void sell(int n) {
         stock = stock - n;
@@ -42,6 +44,8 @@ public class Product {
     public void addProductObserver(ProductObserver observer) {
         observers.add(observer);
     }
+    
+    
 
     @Override
     public String toString() {

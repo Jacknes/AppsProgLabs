@@ -11,18 +11,18 @@
 		styleClass="root">
 
 	<Label text="Product" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-	<Text text="${controller.stadium.group.name}" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+	<Text text="${controller.store.product.name}" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
 	<Label text="Stock" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-	<Text text="${controller.stadium.group.capacity}" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+	<Text fx:id="stockTxt" text="${controller.stadium.group.capacity}" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 	<Label text="Price" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-	<Text text="${controller.stadium.group.price}" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+	<Text fx:id="priceTxt" text="${controller.store.product.price}" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 	<Label text="Sell" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-	<TextField fx:id="amountTf" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-	<HBox alignment="center_right" GridPane.columnIndex="1" GridPane.rowIndex="7">
+	<TextField fx:id="amountTf" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+	<HBox alignment="center_right" GridPane.columnIndex="1" GridPane.rowIndex="4">
 		<Button fx:id="sellBtn" text="Sell" onAction="#handleSell"/>
 	</HBox>
         <Label text="Cash" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-	<Text text="${controller.stadium.group.name}" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+	<Text fx:id="cashTxt" text="${controller.stadium.group.name}" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
         
 	
 </GridPane>
