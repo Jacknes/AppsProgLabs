@@ -1,5 +1,6 @@
 
-import javafx.fxml.FXML;
+import javafx.event.*;
+import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
@@ -19,10 +20,34 @@ public class StoreController {
     @FXML private Text priceTxt;
     @FXML private TextField amountTf;
     @FXML private Text cashTxt;
-    
-    public void handleSell()
+    @FXML private Text productTxt;
+   
+    @FXML private void initialize() 
     {
-        
+       setAmount(0);
+       productTxt.textProperty().bind(store.getProduct().nameProperty());
+       stockTxt.textProperty().bind(store.getProduct().stockProperty().asString().concat(" items"));
+       priceTxt.textProperty().bind(store.getProduct().priceProperty().asString("$%.2f"));
+       cashTxt.textProperty().bind(store.getCashRegister().cashProperty().asString("$%.2f"));
+       
+    }
+    private Store store = new Store();
+    
+    private int getAmount() 
+    {
+        return Integer.parseInt(amountTf.getText());
+    }
+    
+    private void setAmount(int amount) 
+    {
+        amountTf.setText("" + amount);
+    }
+    
+    @FXML private void handleSell(ActionEvent event)
+    {
+        if(store.getProduct().has(getAmount())) 
+            store.getProduct().sell(getAmount());   
+        setAmount(0);
     }
     
     

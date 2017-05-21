@@ -1,5 +1,6 @@
 
 import java.util.*;
+import javafx.beans.property.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,37 +15,73 @@ import java.util.*;
 public class Product {
     private LinkedList<ProductObserver> observers = new LinkedList<ProductObserver>();
 
-    private String name;
-    private int stock;
-    private double price;
+    private final StringProperty name = new SimpleStringProperty();
+    private IntegerProperty stock = new SimpleIntegerProperty();
+    private final DoubleProperty price = new SimpleDoubleProperty();
 
-    public Product(String name, int stock, double price) {
-        this.name = name;
-        this.stock = stock;
-        this.price = price;
+    public Product(String name, int stock, double price) 
+    {
+        this.name.set(name);
+        this.stock.set(stock);
+        this.price.set(price);
     }
+    
+    private final void setStock(int value) 
+    {
+        this.stock.set(value);
+    }
+    
+    public final int getStock() 
+    {
+        return this.stock.get();
+    }   
+    
+    public IntegerProperty stockProperty() {return stock;}
+    public DoubleProperty priceProperty() {return price;}
 
-    public void sell(int n) {
-        stock = stock - n;
-        double money = n * price;
+
+    public void sell(int n) 
+    {
+        stock.set(stock.get() - n);
+        double money = n * price.get();
         for (ProductObserver observer : observers)
             observer.handleSale(money);
     }
 
-    public void restock(int n) {
-        stock = stock + n;
+    public void restock(int n) 
+    {
+        stock.set(stock.get() + n);
     }
 
-    public boolean has(int n) {
-        return stock >= n;
+    public boolean has(int n) 
+    {
+        return stock.get() >= n;
     }
 
-    public void addProductObserver(ProductObserver observer) {
+    public void addProductObserver(ProductObserver observer) 
+    {
         observers.add(observer);
+    }
+    
+    public final StringProperty nameProperty() 
+    {
+        return name;
+    }
+    
+    public final String getName() 
+    {
+        return name.get();
+    }
+    
+    public final double getPrice() 
+    {
+        return price.get();
     }
 
     @Override
-    public String toString() {
+    public String toString() 
+    {
         return stock + " " + name + " at $" + price;
     }
+   
 }

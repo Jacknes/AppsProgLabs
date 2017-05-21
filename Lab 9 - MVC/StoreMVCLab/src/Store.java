@@ -12,9 +12,20 @@ public class Store {
     private CashRegister cashRegister;
     private Product product;
 
-    public Store() {
+    public Store() 
+    {
         cashRegister = new CashRegister();
         product = new Product("Sticky tape", 200, 2.99);
-       // product.addProductObserver(cashRegister);
+        product.addProductObserver(cashRegister);
+    }
+    
+    public final CashRegister getCashRegister() 
+    {
+        return cashRegister;
+    }
+    
+    public final Product getProduct() 
+    {
+        return product;
     }
 }
