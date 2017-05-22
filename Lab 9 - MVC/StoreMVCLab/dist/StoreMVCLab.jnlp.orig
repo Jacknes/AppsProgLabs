@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="StoreMVCLab.jnlp">
+  <information>
+    <title>StoreMVCLab</title>
+    <vendor>jacknes</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+<<<<<<< HEAD
+    <jar href="StoreMVCLab.jar" size="9374" download="eager" />
+=======
+    <jar href="StoreMVCLab.jar" size="4757" download="eager" />
+>>>>>>> 78ff65a44889ade6571e79000df5f333535fb02f
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="StoreMVCLab" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="StoreApplication"  name="StoreMVCLab" />
+  <update check="always"/>
+</jnlp>
