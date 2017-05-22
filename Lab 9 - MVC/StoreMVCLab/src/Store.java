@@ -28,4 +28,13 @@ public class Store {
     {
         return product;
     }
+    
+    
+    public final  Product getProduct() {
+        return product;
+    }
+    
+    public final CashRegister getCashRegister() {
+        return cashRegister;
+    }
 }

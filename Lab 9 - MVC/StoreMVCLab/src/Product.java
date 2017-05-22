@@ -25,6 +25,7 @@ public class Product {
         this.stock.set(stock);
         this.price.set(price);
     }
+<<<<<<< HEAD
     
     private void setStock(int value) 
     {
@@ -39,6 +40,10 @@ public class Product {
     public IntegerProperty stockProperty() {return stock;}
     public DoubleProperty priceProperty() {return price;}
     public final StringProperty nameProperty() {return name;}
+=======
+    public final String getName() {return name;}
+    public final String getPrice() {return "$"+price;}
+>>>>>>> 78ff65a44889ade6571e79000df5f333535fb02f
 
     public void sell(int n) 
     {
@@ -63,6 +68,7 @@ public class Product {
         observers.add(observer);
     }
     
+<<<<<<< HEAD
     public final String getName() 
     {
         return name.get();
@@ -72,6 +78,9 @@ public class Product {
     {
         return price.get();
     }
+=======
+    
+>>>>>>> 78ff65a44889ade6571e79000df5f333535fb02f
 
     @Override
     public String toString() 
