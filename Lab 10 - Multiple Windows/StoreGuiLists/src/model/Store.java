@@ -6,7 +6,7 @@ import javafx.collections.*;
 
 public class Store {
     private CashRegister cashRegister;
-    private LinkedList<Product> products = new LinkedList<Product>();
+    private ObservableList<Product> products = FXCollections.observableArrayList();
 
     public Store() {
         cashRegister = new CashRegister();
@@ -27,7 +27,7 @@ public class Store {
         return cashRegister;
     }
 
-    public LinkedList<Product> getProducts() {
+    public ObservableList<Product> getProducts() {
         return products;
     }
 }

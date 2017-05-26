@@ -10,6 +10,8 @@ public class StoreApplication extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        ViewLoader.showStage(new Store(), "/view/store.fxml", "Store", stage);
+        
         // Insert one line of code here to load the store window:
         // - The Model: a new Store
         // - The View: /view/store.fxml
